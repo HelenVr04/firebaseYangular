@@ -1,0 +1,71 @@
+<div style="margin: 20px;">
+    <h1>GESTIÓN DE LIBROS</h1>
+    <h2>Lista de Libros</h2>
+
+    @if(this.books){
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Precio</th>
+            <th>Recomendable</th>
+            <th>Selecionar</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (book of books; track book.id) {
+            <tr>
+              <td>{{book.id}}</td>
+              <td>{{book.titulo}}</td>
+              <td>{{book.autor}}</td>
+              <td>{{book.precio }}</td>
+              <td>{{book.recomendable ? 'Sí' : 'No' }}</td>
+              <td>
+                <button type="button" class="btn btn-success" (click)="this.selectBook(book)">Seleccionar</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }@else {
+      <h3>No hay libros disponibles</h3>
+    }
+
+    <div>
+      <h3>Formulario de Libros</h3>
+      <form #bookForm="ngForm">
+        <p>
+          TÍTULO: 
+          <input type="text" class="form-control" [(ngModel)]="book.titulo" name="titulo" required minlength="10" #titulo="ngModel"/>
+          @if(titulo.invalid && titulo.touched){
+            <small class="text-danger">El título debe contener al menos 10 caracteres.</small>
+          }
+        </p>
+
+        <p>
+          AUTOR: 
+          <input type="text" class="form-control" [(ngModel)]="book.autor" name="autor" required minlength="10" #autor="ngModel"/>
+          @if(autor.invalid && autor.touched){
+            <small class="text-danger">El nombre del autor debe contener al menos 10 caracteres.</small>
+          }
+        </p>
+
+        <p>
+          PRECIO: 
+          <input type="number" class="form-control" [(ngModel)]="book.precio" name="precio" required min="0" max="1000000" #precio="ngModel"/>
+          @if(precio.invalid && precio.touched){
+            <small class="text-danger">El precio debe ser mayor a 0 y menor a 1,000,000.</small>
+          }
+        </p>
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" [(ngModel)]="book.recomendable" name="recomendable">
+            <label for="recomendable">Marca la casilla si recomiendas el libro</label>          
+          </div>          
+        <button type="button" class="btn btn-primary" (click)="this.insertarBook()" [disabled]="bookForm.invalid">Agregar</button>
+        <button type="button" class="btn btn-warning" (click)="this.updateBook()" [disabled]="bookForm.invalid" >Modificar</button>
+        <button type="button" class="btn btn-danger" (click)="this.deleteBook()">Eliminar</button>
+      </form>
+    </div>
+</div>

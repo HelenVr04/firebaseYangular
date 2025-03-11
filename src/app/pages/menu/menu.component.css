@@ -1,0 +1,59 @@
+/* Navbar estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding-top: 60px; /* Esto asegura que no se superponga el contenido bajo la navbar */
+  }
+  
+  /* Barra de navegación */
+  .navbar {
+    background-color: #333; /* Fondo oscuro */
+    padding: 15px 30px;
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: center; /* Centra los elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Listado de elementos de la navbar */
+  .navbar-nav {
+    display: flex; /* Acomoda los items en una fila */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+  }
+  
+  /* Estilo de cada item */
+  .nav-item {
+    margin: 0 20px; /* Espaciado entre los items */
+  }
+  
+  /* Estilo de los links */
+  .nav-link {
+    text-decoration: none;
+    color: white; /* Texto blanco */
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.3s ease; /* Transición suave */
+    padding: 8px 16px;
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  /* Efecto hover (cuando pasas el ratón por encima) */
+  .nav-link:hover {
+    background-color: #5c045f; /* Color de fondo al pasar el ratón */
+    color: white; /* Asegura que el texto sea blanco */
+    transform: translateY(-2px); /* Un leve efecto de elevarse */
+  }
+  
+  /* Efecto al hacer clic */
+  .nav-link:active {
+    background-color: #72025a;
+    transform: translateY(1px); /* Efecto de presionar el botón */
+  }
+  

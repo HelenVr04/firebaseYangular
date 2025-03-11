@@ -1,0 +1,156 @@
+/* Fuente general */
+div {
+    font-family: 'Poppins', sans-serif;
+    color: #444;
+}
+
+/* Títulos */
+h1 {
+    color: #000; /* Negro */
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;  
+}
+
+h4 {
+    color: #000; /* Negro */
+    border-bottom: 2px solid #c1a1d3;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+/* Contenedor del formulario */
+.col-sm-4 {
+    background: #f8f0fc; /* Lila clarito */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+    border: 2px solid #e0c3fc; /* Borde aesthetic */
+}
+
+/* Estilos de los inputs */
+p {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: 500;
+    color: #5a3e85;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1.5px solid #d8b6ff;
+    border-radius: 10px;
+    background: #fefaff;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #a675ff;
+    box-shadow: 0 0 5px #d5a3ff;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background: #c1a1d3; /* Morado pastel */
+    color: white;
+    font-weight: 600;
+    border: 1px solid #dcdcdc; 
+
+}
+
+tr {
+    transition: background 0.3s ease-in-out;
+}
+
+tr:hover {
+    background: #f5ebff;
+}
+
+/* Botones aesthetic con efecto hover */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    color: black; /* Negro */
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-primary {
+    background: #a278ff;
+}
+
+.btn-warning {
+    background: #ffb677;
+}
+
+.btn-danger {
+    background: #ff6b6b;
+}
+
+.btn-success {
+    background: #78c2ad;
+}
+
+/* Efecto hover en los botones */
+.btn-primary:hover {
+    background: #7a4cff; /* Morado más intenso */
+}
+
+.btn-warning:hover {
+    background: #ff9e4d; /* Naranja más fuerte */
+}
+
+.btn-danger:hover {
+    background: #ff4040; /* Rojo más vibrante */
+}
+
+.btn-success:hover {
+    background: #4da891; /* Verde más profundo */
+}
+
+button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+.btn-warning:hover {
+    background: #ff9e4d; /* Naranja más fuerte */
+}
+
+tr:nth-child(odd) {
+    background-color: #f9f9f9; 
+}
+
+tr:hover {
+    background: #f5ebff;
+}

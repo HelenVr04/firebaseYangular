@@ -1,0 +1,78 @@
+<div style="margin: 20px;">
+    <h1>Catálogo de libros</h1>
+    <h4>Alta de libros</h4>
+
+    <form #libroForm="ngForm">
+        <div class="col-sm-4">
+            <p>
+                <label>Título</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.titulo" name="titulo" required minlength="10" maxlength="100" #tituloInput="ngModel"/>
+                @if (tituloInput.invalid && tituloInput.touched) {
+                    <small class="error">El título es obligatorio y debe tener al menos 10 caracteres.</small>
+                }
+            </p>
+            <p>
+                <label>Autor</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.autor" name="autor" required #autorInput="ngModel"/>
+                @if (autorInput.invalid && autorInput.touched) {
+                    <small class="error">El autor es obligatorio.</small>
+                }
+            </p>
+            <p>
+                <label>Editorial</label>
+                <input type="text" class="form-control" [(ngModel)]="libro.editorial" name="editorial" required #editorialInput="ngModel"/>
+                @if (editorialInput.invalid && editorialInput.touched) {
+                    <small class="error">La editorial es obligatoria.</small>
+                }
+            </p>
+            <p>
+                <label>Año de publicación</label>
+                <input type="number" class="form-control" [(ngModel)]="libro.anioPublicacion" name="anioPublicacion" required min="1000" max="2099" #anioInput="ngModel"/>
+                @if (anioInput.invalid && anioInput.touched) {
+                    <small class="error">Ingresa un año válido</small>
+                }
+            </p>
+
+            <table>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-primary" (click)="this.insertarLibro()" [disabled]="libroForm.invalid">Insertar</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-warning" (click)="this.updateLibro()" [disabled]="libroForm.invalid">Modificar</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="this.deleteLibro()">Eliminar</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+
+    <hr/>
+    <p></p>
+    <h4>Listado de libros</h4>
+
+    <table class="table">
+        <thead>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Editorial</th>
+            <th>Año de Publicación</th>
+            <th>Seleccionar</th>
+        </thead>
+        <tbody>
+            @for (libro of libros; track libro.id) {
+                <tr>
+                    <td>{{ libro.titulo }}</td>
+                    <td>{{ libro.autor }}</td>
+                    <td>{{ libro.editorial }}</td>
+                    <td>{{ libro.anioPublicacion }}</td>
+                    <td>
+                        <button type="button" class="btn btn-success" (click)="this.selectLibro(libro)">Seleccionar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

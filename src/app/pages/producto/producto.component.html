@@ -1,0 +1,53 @@
+  <div style="margin: 20px;">
+    <h1>CÁTALOGO DE PRODUCTOS</h1>
+    @if(this.productos){
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>DESCRIPCIÓN</th>
+            <th>PRECIO</th>
+            <th>SELECCIONAR</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (producto of productos; track producto.id) {
+            <tr>
+              <td>{{producto.id}}</td>
+              <td>{{producto.descripcion}}</td>
+              <td>{{producto.precio }}</td>
+              <td>
+                <button type="button" class="btn btn-success" (click)="this.selectProducto(producto)">Seleccionar</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }@else {
+      <h3>No hay productos disponibles :/</h3>
+    }
+
+    <div>
+      <h3>Formulario de productos</h3>
+      <form #productoForm="ngForm">
+        <p>
+          DESCRIPCIÓN: 
+          <input type="text" class="form-control" [(ngModel)]="producto.descripcion" name="descripcion" required minlength="3" #descripcion="ngModel"/>
+          @if(descripcion.invalid && descripcion.touched){
+            <small class="error">El campo descripción es obligatorio y debe tener más de 3 caracteres.</small>
+          }
+        </p>
+        <p>
+          PRECIO: 
+          <input type="number" class="form-control" [(ngModel)]="producto.precio" name="precio" required min="0" max="1000000" #precio="ngModel"/>
+          @if(precio.invalid && precio.touched){
+            <small class="error">El precio debe ser mayor a 0 y menor a 1,000,000.</small>
+          }
+        </p>
+
+        <button type="button" class="btn btn-primary" (click)="this.insertProducto()" [disabled]="productoForm.invalid">Agregar</button>
+        <button type="button" class="btn btn-warning" (click)="this.updateProducto()" [disabled]="productoForm.invalid" >Modificar</button>
+        <button type="button" class="btn btn-danger" (click)="this.deleteProducto()">Eliminar</button>
+      </form>
+    </div>
+  </div>
